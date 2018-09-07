@@ -48,7 +48,7 @@ if __name__ == '__main__':
     #servAddr = "raw.githubusercontent.com/bl201809/bllist/master"
     servAddr = "github.com"
     #servAddr = "www.dthas.info"
-    url = "/bl201809/bllist/blob/master/dos/index.html"
+    url = "/bl201809/bllist/blob/master/index.html"
     #url = "/index.html"
     sleepTime = 0.01
     hack = Dos()
