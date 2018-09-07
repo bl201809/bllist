@@ -24,8 +24,8 @@ class Dos(object):
 
 
 if __name__ == '__main__':
-    #servAddr = "hackbiji.top"
-    servAddr = "www.dthas.info"
+    servAddr = "https://raw.githubusercontent.com/bl201809/bllist/master"
+    #servAddr = "www.dthas.info"
     #url = "/"
     url = "/index.html"
     sleepTime = 0.01
