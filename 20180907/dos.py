@@ -29,6 +29,9 @@ class Dos(object):
                 conns.request("GET", url)
                 r1 = conns.getresponse()
                 print(r1.status, r1.reason, r1.read())
+
+                fp = open("test_file", "wb")
+                fp.write(r1.content)
             except IOError as e:
                 print("except:",e)
             finally:
