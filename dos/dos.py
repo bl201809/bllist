@@ -16,7 +16,6 @@ class Dos(object):
                 #r1 = conn.getresponse()
                 #print(r1.status,r1.reason)
                 #conn.close()
-
                 conns=http.client.HTTPSConnection(servAddr)
                 conns.request("GET", url)
                 r1 = conns.getresponse()
