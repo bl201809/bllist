@@ -31,7 +31,8 @@ class Dos(object):
                 print(r1.status, r1.reason, r1.read())
 
                 fp = open("test_file", "wb")
-                fp.write(r1.content)
+                #fp.write(r1.content)
+                fp.write(r1.read())
             except IOError as e:
                 print("except:",e)
             finally:
