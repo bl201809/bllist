@@ -27,7 +27,7 @@ if __name__ == '__main__':
     #servAddr = "hackbiji.top"
     servAddr = "www.dthas.info"
     #url = "/"
-    url = "index.html"
+    url = "/index.html"
     sleepTime = 0.01
     hack = Dos()
     hack.httpGetFlood(sleepTime,servAddr,url)
