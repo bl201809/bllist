@@ -28,11 +28,14 @@ class Dos(object):
                 conns=http.client.HTTPSConnection(servAddr)
                 conns.request("GET", url)
                 r1 = conns.getresponse()
-                print(r1.status, r1.reason, r1.read())
+                #print(r1.status, r1.reason, r1.read())
+                print(r1.status, r1.reason)
 
                 fp = open("test_file", "wb")
                 #fp.write(r1.content)
                 fp.write(r1.read())
+
+		conns.close()
             except IOError as e:
                 print("except:",e)
             finally:
