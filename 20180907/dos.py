@@ -35,7 +35,7 @@ class Dos(object):
                 #fp.write(r1.content)
                 fp.write(r1.read())
 
-		conns.close()
+                conns.close()
             except IOError as e:
                 print("except:",e)
             finally:
