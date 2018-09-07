@@ -8,7 +8,7 @@ class Dos(object):
 
     def httpGetFlood(self,sleepTime,servAddr,url):
         for i in range(5):
-            print('第',i+1,'次攻击')
+            print('num ',i+1,' action')
             time.sleep(sleepTime)
             try:
                 #conn = http.client.HTTPConnection(servAddr)
